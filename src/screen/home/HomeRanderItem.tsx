@@ -57,6 +57,8 @@ const HomeRanderItem = () => {
   );
 };
 
+const Container = styled.View``;
+
 const ButtonView = styled.View`
   flex-direction: row;
 `;
