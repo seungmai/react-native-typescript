@@ -10,6 +10,8 @@ import ProfileDescription from './ProfileDescription';
 import ProfileEdit from './ProfileEdit';
 import ProfileNavbar from './ProfileNavbar';
 
+import Loader from '../../components/Loader';
+
 const Profile = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any, any>>();
   const [isRefresing, setIsRefresing] = useState<boolean>(false);
@@ -60,6 +62,7 @@ const Profile = () => {
 
   return (
     <Container theme={theme}>
+      <Loader />
       <ProfileDescription />
       <ProfileEdit />
 
