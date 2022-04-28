@@ -1,41 +1,33 @@
-// FlatListHeader.tsx
+// ProfileHighLight.tsx
 import React from 'react';
 import {ImageBackground, ScrollView} from 'react-native';
 import styled from 'styled-components/native';
 
-const FlatListHeader = () => {
+const ProfileHighLight = () => {
   const UserStory_DATA = [
     {
-      id: 'pandaii',
+      id: 'Highlight',
       img: require('../../assets/panda.jpeg'),
     },
     {
-      id: 'pandaii',
+      id: 'Highlight',
       img: require('../../assets/rabbit.png'),
     },
     {
-      id: 'pandaii',
-      img: require('../../assets/panda.jpeg'),
+      id: 'Highlight',
+      img: require('../../assets/rabbit.png'),
     },
     {
-      id: 'pandaii',
-      img: require('../../assets/panda.jpeg'),
+      id: 'Highlight',
+      img: require('../../assets/rabbit.png'),
     },
     {
-      id: 'pandaii',
-      img: require('../../assets/panda.jpeg'),
+      id: 'Highlight',
+      img: require('../../assets/rabbit.png'),
     },
     {
-      id: 'pandaii',
-      img: require('../../assets/panda.jpeg'),
-    },
-    {
-      id: 'pandaii',
-      img: require('../../assets/panda.jpeg'),
-    },
-    {
-      id: 'pandaii',
-      img: require('../../assets/panda.jpeg'),
+      id: 'Highlight',
+      img: require('../../assets/rabbit.png'),
     },
   ];
 
@@ -55,41 +47,26 @@ const FlatListHeader = () => {
           </Contents>
         ))}
       </ScrollView>
-      <LineStyle
-        numberOfLines={1}
-        style={{
-          borderBottomColor: '#fff',
-          borderBottomWidth: 1,
-        }}
-      />
     </Container>
   );
 };
 
 const Container = styled.View`
-  justify-content: center;
-  width: 500px;
-  height: 100px;
+  height: 120px;
 `;
 
 const Contents = styled.View`
   margin: 10px 10px;
+  align-items: center;
 `;
 
 const UserImage = styled.View`
-  width: 60px;
-  height: 60px;
+  border: 1px solid black;
   border-radius: 50px;
-  box-shadow: 0px 0px 10px #c4c4c4;
 `;
 
 const UserName = styled.Text`
   margin-top: 6px;
-  margin-left: 6px;
 `;
 
-const LineStyle = styled.Text`
-  background-color: gray;
-  height: 0.5px;
-`;
-export default FlatListHeader;
+export default ProfileHighLight;

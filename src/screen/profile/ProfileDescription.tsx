@@ -1,65 +1,79 @@
 // ProfileDescription.tsx
 import React from 'react';
-import {ImageBackground, View, Text} from 'react-native';
 import styled from 'styled-components/native';
 
 const ProfileDescription = () => {
   return (
     <Container>
-      <UserImage>
-        <ImageBackground
-          source={require('../../assets/panda.jpeg')}
-          style={{width: 100, height: 100}}
-          imageStyle={{borderRadius: 50}}
-        />
-      </UserImage>
-
+      <Wrap>
+        <Contents>
+          <UserImage
+            source={require('../../assets/panda.jpeg')}
+            style={{width: 100, height: 100}}
+            imageStyle={{borderRadius: 50}}
+          />
+        </Contents>
+        <Description>FEND 👨🏻‍💻</Description>
+      </Wrap>
       <Contents>
-        <View>
-          <ContentText>게시물</ContentText>
-        </View>
-        <View>
-          <ContentText>팔로워</ContentText>
-        </View>
-        <View>
-          <ContentText>팔로윙</ContentText>
-        </View>
+        <ViewView>
+          <InforMation>
+            <ContentText>29</ContentText>
+            <ContentText>게시물</ContentText>
+          </InforMation>
+          <InforMation>
+            <ContentText>423</ContentText>
+            <ContentText>팔로워</ContentText>
+          </InforMation>
+          <InforMation>
+            <ContentText>322</ContentText>
+            <ContentText>팔로윙</ContentText>
+          </InforMation>
+        </ViewView>
       </Contents>
-
-      <UserDescription>오늘은 당신만을 위한 날</UserDescription>
     </Container>
   );
 };
 
 const Container = styled.View`
-  width: 500px;
-  height: 100px;
-  background-color: #111111;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
+
+const Wrap = styled.View``;
 
 const Contents = styled.View`
-  color: white;
-  align-items: flex-end;
-  flex-direction: row;
+  flex-direction: column;
+  margin: 10px 10px 10px 10px;
+  align-items: center;
 `;
 
-const ContentText = styled.Text`
-  color: white;
+const Description = styled.Text`
+  font-size: 18px;
+  margin: 0px 0px 0px 8px;
 `;
 
-const UserImage = styled.View`
-  width: 100px;
-  height: 100px;
+const UserImage = styled.ImageBackground`
+  width: 40px;
+  height: 40px;
   border-radius: 50px;
-  margin: 80px 0px 0px 10px;
   background-color: white;
   box-shadow: 0px 0px 10px #c4c4c4;
 `;
 
-const UserDescription = styled.Text`
-  color: white;
-  font-size: 16px;
-  margin: 4px 0px 0px 10px;
+const ViewView = styled.View`
+  flex-direction: row;
+`;
+
+const InforMation = styled.View`
+  align-items: center;
+`;
+
+const ContentText = styled.Text`
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0px 10px 0px 10px;
 `;
 
 export default ProfileDescription;

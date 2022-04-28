@@ -1,25 +1,39 @@
 // Profile.tsx
-import React, {useLayoutEffect} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useLayoutEffect, useState} from 'react';
+import {View, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {theme} from '../../theme/theme';
 
 import ProfileDescription from './ProfileDescription';
+import ProfileEdit from './ProfileEdit';
+import ProfileNavbar from './ProfileNavbar';
 
 const Profile = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any, any>>();
+  const [isRefresing, setIsRefresing] = useState<boolean>(false);
 
-  // 왼쪽, 오른쪽 헤더
+  const onRefresh = () => {
+    setTimeout(() => {
+      setIsRefresing(false);
+    }, 700);
+  };
+
+  const onEndReached = () => {
+    console.log('1');
+  };
+
+  // 왼쪽 헤더
   const ProfileHeaderLeft = () => {
     return (
       <View>
-        <LeftTitle>Min_lsll</LeftTitle>
+        <LeftTitle>min_lsll</LeftTitle>
       </View>
     );
   };
 
+  // 오른쪽 헤더
   const ProfileHeaderRight = () => {
     return (
       <ButtonView>
@@ -46,9 +60,10 @@ const Profile = () => {
 
   return (
     <Container theme={theme}>
-      <Text>
-        <ProfileDescription />
-      </Text>
+      <ProfileDescription />
+      <ProfileEdit />
+
+      <ProfileNavbar />
     </Container>
   );
 };
@@ -56,8 +71,6 @@ const Profile = () => {
 const Container = styled.View`
   flex: 1;
   background-color: ${({theme}: any) => theme.background};
-  align-items: center;
-  justify-content: flex-start;
 `;
 
 const ButtonView = styled.View`

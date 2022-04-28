@@ -36,15 +36,6 @@ const Home = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any, any>>();
   const [isRefresing, setIsRefresing] = useState<boolean>(false);
 
-  // 왼쪽, 오른쪽 헤더
-  const HomeHeaderLeft = () => {
-    return (
-      <View>
-        <LeftTitle>InstaGram</LeftTitle>
-      </View>
-    );
-  };
-
   const onRefresh = () => {
     setIsRefresing(true);
 
@@ -58,9 +49,19 @@ const Home = () => {
   };
 
   const renderItem = ({item, index}: {item: any; index: number}) => {
-    return <HomeRanderItem item={item} />;
+    return <HomeRanderItem item={item} key={index} />;
   };
 
+  // 왼쪽 Header
+  const HomeHeaderLeft = () => {
+    return (
+      <View>
+        <LeftTitle>InstaGram</LeftTitle>
+      </View>
+    );
+  };
+
+  // 오른쪽 Header
   const HomeHeaderRight = () => {
     return (
       <ButtonView>
@@ -92,18 +93,17 @@ const Home = () => {
 
   return (
     <Container theme={theme}>
-      {/* 홈 스토리 헤어 */}
-      {/* <FlatListHeader /> */}
-
-      {/* 홈 게시글 헤더 */}
-      {/* <HomeMain /> */}
       <FlatList
         data={MAINHOME_DESCRIPTION}
+        // 메인 게시물(함수로 만들어줌)
         renderItem={renderItem}
+        // 홈 스토리 헤더
         ListHeaderComponent={<FlatListHeader />}
+        // 스크롤 하면 로딩
         refreshControl={
           <RefreshControl refreshing={isRefresing} onRefresh={onRefresh} />
         }
+        // 키 값 설정
         keyExtractor={(item, index) => index.toString()}
         onEndReached={onEndReached}
         onEndReachedThreshold={1}
@@ -116,8 +116,6 @@ const Container = styled.View`
   flex: 1;
   background-color: #fff;
 `;
-
-const Wrap = styled.View``;
 
 const ButtonView = styled.View`
   flex-direction: row;

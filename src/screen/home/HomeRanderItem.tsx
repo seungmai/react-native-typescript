@@ -1,43 +1,55 @@
 // HomeRanderItem.tsx
-import React from 'react';
-import {ImageBackground, TouchableOpacity, Text} from 'react-native';
+import React, {useState} from 'react';
+import {ImageBackground, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
 const HomeRanderItem = () => {
+  const [like, setLike] = useState<boolean>(false);
+
   const MAINHOME_PICTURE_DATA = [
     {
-      img: '../../assets/background.jpeg',
+      img: require('../../assets/background.jpeg'),
+      like: 'min_lsll님 외 여러명이 좋아합니다.',
     },
   ];
 
   return (
     <>
-      <ContainerView>
-        <Wrap2>
+      <Container>
+        <WrapOne>
           <Contents>
-            {/* <UserImage> */}
             <UserImage
               source={require('../../assets/panda.jpeg')}
               imageStyle={{borderRadius: 50}}
             />
-            {/* </UserImage> */}
             <UserName>min_lsll</UserName>
           </Contents>
-        </Wrap2>
+        </WrapOne>
         <TouchableOpacity>
-          <RightImage2>...</RightImage2>
+          <RightImageOne>...</RightImageOne>
         </TouchableOpacity>
-      </ContainerView>
-      {MAINHOME_PICTURE_DATA.map(item => (
+      </Container>
+      {MAINHOME_PICTURE_DATA.map((item, index) => (
         <ImageBackground
-          source={require('../../assets/background.jpeg')}
+          source={item.img}
+          key={index}
           style={{width: '100%', height: 300}}
         />
       ))}
       <ButtonView>
-        <TouchableOpacity>
-          <LeftImage source={require('../../assets/redheart.png')} />
-        </TouchableOpacity>
+        <WrapOne>
+          <TouchableOpacity
+            like={like}
+            onPress={() => {
+              setLike(true);
+            }}>
+            {like ? (
+              <LeftImage source={require('../../assets/redheart.png')} />
+            ) : (
+              <LeftImage source={require('../../assets/heart.png')} />
+            )}
+          </TouchableOpacity>
+        </WrapOne>
         <TouchableOpacity>
           <LeftImage source={require('../../assets/bubble.png')} />
         </TouchableOpacity>
@@ -45,11 +57,11 @@ const HomeRanderItem = () => {
           <LeftImage source={require('../../assets/send.png')} />
         </TouchableOpacity>
       </ButtonView>
-      <Wrap>
+      <WrapTwo>
         <TouchableOpacity>
           <RightImage source={require('../../assets/bookmark.png')} />
         </TouchableOpacity>
-      </Wrap>
+      </WrapTwo>
       <LikeTitle>min_lsll님 외 여러명이 좋아합니다.</LikeTitle>
       <Description>min_lsll 요즘 핫한 #원밀리언 댄스 ❤️</Description>
       <Comment>댓글 7개 모두 보기</Comment>
@@ -57,47 +69,12 @@ const HomeRanderItem = () => {
   );
 };
 
-const Container = styled.View``;
-
-const ButtonView = styled.View`
-  flex-direction: row;
-`;
-
-const Wrap = styled.View`
-  align-items: flex-end;
-`;
-
-const LeftImage = styled.Image`
-  width: 30px;
-  height: 30px;
-  margin: 15px 8px;
-`;
-
-const RightImage = styled.Image`
-  width: 30px;
-  height: 30px;
-  margin: -45px 8px;
-`;
-
-const LikeTitle = styled.Text`
-  margin: 0px 0px 0px 8px;
-`;
-
-const Description = styled.Text`
-  margin: 0px 0px 0px 8px;
-`;
-
-const Comment = styled.Text`
-  color: gray;
-  margin: 0px 0px 0px 8px;
-`;
-
-const ContainerView = styled.View`
+const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
 
-const Wrap2 = styled.View``;
+const WrapOne = styled.View``;
 
 const Contents = styled.View`
   flex-direction: row;
@@ -119,12 +96,44 @@ const UserName = styled.Text`
   font-size: 16px;
 `;
 
-const RightImage2 = styled.Text`
+const RightImageOne = styled.Text`
   width: 30px;
   height: 30px;
   margin: 0 10px;
-
   font-size: 30px;
+`;
+
+const ButtonView = styled.View`
+  flex-direction: row;
+`;
+
+const LeftImage = styled.Image`
+  width: 30px;
+  height: 30px;
+  margin: 15px 8px;
+`;
+
+const RightImage = styled.Image`
+  width: 30px;
+  height: 30px;
+  margin: -45px 8px;
+`;
+
+const WrapTwo = styled.View`
+  align-items: flex-end;
+`;
+
+const LikeTitle = styled.Text`
+  margin: 0px 0px 0px 8px;
+`;
+
+const Description = styled.Text`
+  margin: 0px 0px 0px 8px;
+`;
+
+const Comment = styled.Text`
+  color: gray;
+  margin: 0px 0px 0px 8px;
 `;
 
 export default HomeRanderItem;

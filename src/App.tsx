@@ -41,6 +41,7 @@ const App = () => {
         {/* 홈 */}
         <Tab.Screen
           options={{
+            tabBarShowLabel: false,
             tabBarIcon: () => {
               return <NavigationImage source={require('./assets/home.png')} />;
             },
@@ -52,6 +53,7 @@ const App = () => {
         {/* 검색 */}
         <Tab.Screen
           options={{
+            tabBarShowLabel: false,
             tabBarIcon: () => {
               return (
                 <NavigationImage source={require('./assets/search.png')} />
@@ -65,6 +67,7 @@ const App = () => {
         {/* 스트림비디오 */}
         <Tab.Screen
           options={{
+            tabBarShowLabel: false,
             tabBarIcon: () => {
               return <NavigationImage source={require('./assets/video.png')} />;
             },
@@ -76,6 +79,7 @@ const App = () => {
         {/* 쇼핑 */}
         <Tab.Screen
           options={{
+            tabBarShowLabel: false,
             tabBarIcon: () => {
               return <NavigationImage source={require('./assets/shop.png')} />;
             },
@@ -87,6 +91,7 @@ const App = () => {
         {/* 프로필 */}
         <Tab.Screen
           options={{
+            tabBarShowLabel: false,
             tabBarIcon: () => {
               return (
                 <NavigationImage source={require('./assets/profile.png')} />
