@@ -13,10 +13,12 @@ const ProfileEdit = () => {
   return (
     <Container>
       <Wrap>
+        {/* 모달 */}
         <ModalBox
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
         />
+
         <TouchableOpacity>
           <ButtonBox>
             <ButtonText

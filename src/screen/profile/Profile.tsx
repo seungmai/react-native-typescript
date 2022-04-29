@@ -1,6 +1,6 @@
 // Profile.tsx
-import React, {useLayoutEffect, useRef, useState} from 'react';
-import {SafeAreaView, View, TouchableOpacity, StyleSheet} from 'react-native';
+import React, {useLayoutEffect, useState} from 'react';
+import {View, TouchableOpacity, FlatList, RefreshControl} from 'react-native';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -60,7 +60,6 @@ const Profile = () => {
 
   return (
     <Container theme={theme}>
-      {/* <Loader /> */}
       {/* 프로필 정보 */}
       <ProfileDescription />
 
