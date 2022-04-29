@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
 import HomeNavigation from './navigation/HomeNavigation';
 import SearchNavigation from './navigation/SeachNavigation';
 import StreamVideoNavigation from './navigation/StreamVideoNavigation';

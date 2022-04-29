@@ -5,10 +5,15 @@ import styled from 'styled-components/native';
 
 const AnotherUser = () => {
   return (
-    <View>
+    <Container>
       <Text>다른사람이양</Text>
-    </View>
+    </Container>
   );
 };
+
+const Container = styled.View`
+  flex: 1;
+  background-color: #ffffff;
+`;
 
 export default AnotherUser;

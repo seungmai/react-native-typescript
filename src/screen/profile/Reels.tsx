@@ -5,10 +5,15 @@ import styled from 'styled-components/native';
 
 const Reels = () => {
   return (
-    <View>
+    <Container>
       <Text>릴스야</Text>
-    </View>
+    </Container>
   );
 };
+
+const Container = styled.View`
+  flex: 1;
+  background-color: #ffffff;
+`;
 
 export default Reels;

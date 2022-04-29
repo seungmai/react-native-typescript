@@ -6,7 +6,6 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import HomeRanderItem from './HomeRanderItem';
 import {theme} from '../../theme/theme';
-
 import FlatListHeader from './FlatListHeader';
 
 const MAINHOME_DESCRIPTION = [
@@ -49,7 +48,7 @@ const Home = () => {
   };
 
   const renderItem = ({item, index}: {item: any; index: number}) => {
-    return <HomeRanderItem item={item} key={index} />;
+    return <HomeRanderItem item={item} />;
   };
 
   // 왼쪽 Header

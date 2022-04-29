@@ -2,15 +2,9 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
-
 import ProfileHighLight from './ProfileHighLight';
 
 const ProfileEdit = () => {
-  type EditProps = {
-    edit: boolean;
-    add: boolean;
-  };
-
   const [edit, setEdit] = useState<boolean>(false);
   const [add, setAdd] = useState<boolean>(false);
 
@@ -20,7 +14,6 @@ const ProfileEdit = () => {
         <TouchableOpacity>
           <ButtonBox>
             <ButtonText
-              edit={edit}
               onPress={() => {
                 setEdit(true);
               }}>
@@ -31,7 +24,6 @@ const ProfileEdit = () => {
         <TouchableOpacity>
           <View>
             <Text
-              add={add}
               style={{width: 40}}
               onPress={() => {
                 setAdd(true);
@@ -41,6 +33,8 @@ const ProfileEdit = () => {
           </View>
         </TouchableOpacity>
       </Wrap>
+
+      {/* 프로필 하이라이트 */}
       <ProfileHighLight />
     </Container>
   );
@@ -58,7 +52,6 @@ const Wrap = styled.View`
 const ButtonBox = styled.View`
   width: 330px;
   height: 30px;
-  align-items: center;
   border: 1px solid black;
   border-radius: 4px;
   display: flex;
@@ -67,6 +60,7 @@ const ButtonBox = styled.View`
 `;
 
 const ButtonText = styled.Text`
+  margin: auto 0;
   font-size: 16px;
   align-items: center;
   text-align: center;

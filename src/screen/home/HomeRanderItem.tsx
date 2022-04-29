@@ -3,13 +3,13 @@ import React, {useState} from 'react';
 import {ImageBackground, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
-const HomeRanderItem = () => {
+const HomeRanderItem = ({item}: any) => {
   const [like, setLike] = useState<boolean>(false);
+  const [bookmark, setBookMark] = useState<boolean>(false);
 
   const MAINHOME_PICTURE_DATA = [
     {
       img: require('../../assets/background.jpeg'),
-      like: 'min_lsll님 외 여러명이 좋아합니다.',
     },
   ];
 
@@ -39,9 +39,8 @@ const HomeRanderItem = () => {
       <ButtonView>
         <WrapOne>
           <TouchableOpacity
-            like={like}
             onPress={() => {
-              setLike(true);
+              setLike(!like);
             }}>
             {like ? (
               <LeftImage source={require('../../assets/redheart.png')} />
@@ -58,8 +57,15 @@ const HomeRanderItem = () => {
         </TouchableOpacity>
       </ButtonView>
       <WrapTwo>
-        <TouchableOpacity>
-          <RightImage source={require('../../assets/bookmark.png')} />
+        <TouchableOpacity
+          onPress={() => {
+            setBookMark(!bookmark);
+          }}>
+          {bookmark ? (
+            <RightImage source={require('../../assets/blackbookmark.png')} />
+          ) : (
+            <RightImage source={require('../../assets/bookmark.png')} />
+          )}
         </TouchableOpacity>
       </WrapTwo>
       <LikeTitle>min_lsll님 외 여러명이 좋아합니다.</LikeTitle>

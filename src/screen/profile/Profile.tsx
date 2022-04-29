@@ -1,6 +1,6 @@
 // Profile.tsx
-import React, {useLayoutEffect, useState} from 'react';
-import {View, TouchableOpacity} from 'react-native';
+import React, {useLayoutEffect, useRef, useState} from 'react';
+import {SafeAreaView, View, TouchableOpacity, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -10,21 +10,19 @@ import ProfileDescription from './ProfileDescription';
 import ProfileEdit from './ProfileEdit';
 import ProfileNavbar from './ProfileNavbar';
 
-import Loader from '../../components/Loader';
-
 const Profile = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any, any>>();
-  const [isRefresing, setIsRefresing] = useState<boolean>(false);
+  // const [isRefresing, setIsRefresing] = useState<boolean>(false);
 
-  const onRefresh = () => {
-    setTimeout(() => {
-      setIsRefresing(false);
-    }, 700);
-  };
+  // const onRefresh = () => {
+  //   setTimeout(() => {
+  //     setIsRefresing(false);
+  //   }, 700);
+  // };
 
-  const onEndReached = () => {
-    console.log('1');
-  };
+  // const onEndReached = () => {
+  //   console.log('1');
+  // };
 
   // 왼쪽 헤더
   const ProfileHeaderLeft = () => {
@@ -62,10 +60,14 @@ const Profile = () => {
 
   return (
     <Container theme={theme}>
-      <Loader />
+      {/* <Loader /> */}
+      {/* 프로필 정보 */}
       <ProfileDescription />
+
+      {/* 프로필 편집 버튼 */}
       <ProfileEdit />
 
+      {/* 프로필 TopNavbar */}
       <ProfileNavbar />
     </Container>
   );
