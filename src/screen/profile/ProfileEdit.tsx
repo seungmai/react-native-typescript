@@ -3,19 +3,25 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 import ProfileHighLight from './ProfileHighLight';
+import ModalBox from '../../components/ModalBox';
 
 const ProfileEdit = () => {
   const [edit, setEdit] = useState<boolean>(false);
   const [add, setAdd] = useState<boolean>(false);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
     <Container>
       <Wrap>
+        <ModalBox
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+        />
         <TouchableOpacity>
           <ButtonBox>
             <ButtonText
               onPress={() => {
-                setEdit(true);
+                setModalVisible(true);
               }}>
               프로필 편집
             </ButtonText>
