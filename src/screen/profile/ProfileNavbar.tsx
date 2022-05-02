@@ -5,7 +5,6 @@ import styled from 'styled-components/native';
 import Post from './Post';
 import Reels from './Reels';
 import AnotherUser from './AnotherUser';
-import {Button, View} from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 

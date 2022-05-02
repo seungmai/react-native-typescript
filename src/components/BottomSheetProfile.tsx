@@ -1,6 +1,7 @@
 // BottomSheetProfile.tsx
 import React, {useRef} from 'react';
-import {SafeAreaView, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import styled from 'styled-components/native';
+import {SafeAreaView, TouchableOpacity, Text} from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheet';
 
 const BottomSheetProfile = () => {
@@ -8,44 +9,34 @@ const BottomSheetProfile = () => {
     const bottomSheet = useRef<any>();
 
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView>
         <BottomSheet snapPoints={[]} children={undefined} />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => bottomSheet.current.show()}>
-          <Text style={styles.text}>Open modal</Text>
+        <TouchableOpacity onPress={() => bottomSheet.current.show()}>
+          <Text>Open modal</Text>
         </TouchableOpacity>
       </SafeAreaView>
     );
   }
 };
 
-const styles = StyleSheet.create({
-  button: {
-    height: 50,
-    width: 150,
-    backgroundColor: '#140078',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 20,
-    shadowColor: '#8559da',
-    shadowOpacity: 0.7,
-    shadowOffset: {
-      height: 4,
-      width: 4,
-    },
-    shadowRadius: 5,
-    elevation: 6,
-  },
-  text: {
-    color: 'white',
-    fontWeight: '600',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+const Container = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Button = styled.Button`
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+`;
+
+const TextBox = styled.Text`
+  color: white;
+  font-weight: 600;
+`;
 
 export default BottomSheetProfile;

@@ -48,7 +48,7 @@ const Home = () => {
   };
 
   const renderItem = ({item, index}: {item: any; index: number}) => {
-    return <HomeRanderItem item={item} />;
+    return <HomeRanderItem item={item} index={index} />;
   };
 
   // 왼쪽 Header

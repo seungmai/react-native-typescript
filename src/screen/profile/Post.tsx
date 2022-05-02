@@ -1,55 +1,79 @@
 // Post.tsx
 import React from 'react';
-import {ImageBackground, ScrollView} from 'react-native';
+import {StyleSheet, FlatList, Image} from 'react-native';
 import styled from 'styled-components/native';
 
-const Post = () => {
-  const UserStory_DATA = [
-    {
-      id: 'Highlight',
-      img: require('../../assets/background.jpeg'),
-    },
-    {
-      id: 'Highlight',
-      img: require('../../assets/background.jpeg'),
-    },
-    {
-      id: 'Highlight',
-      img: require('../../assets/background.jpeg'),
-    },
-  ];
+const data = [
+  {
+    id: 1,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 2,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 3,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 4,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 5,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 6,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 7,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 8,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 9,
+    img: require('../../assets/background.jpeg'),
+  },
+  {
+    id: 10,
+    img: require('../../assets/background.jpeg'),
+  },
+];
 
+const Post = () => {
   return (
     <Container>
-      <ScrollView horizontal={true}>
-        {UserStory_DATA.map((item, index) => (
-          <Contents key={index}>
-            <ImageBox>
-              <ImageBackground
-                source={item.img}
-                style={{width: 120, height: 120}}
-              />
-            </ImageBox>
-          </Contents>
-        ))}
-      </ScrollView>
+      <FlatList
+        data={data}
+        renderItem={({item}) => <ImageWrap source={item.img} />}
+        columnWrapperStyle={styles.imageRow}
+        numColumns={3}
+      />
     </Container>
   );
 };
 
 const Container = styled.View`
   flex: 1;
-  background-color: white;
+  margin: auto;
 `;
 
-const ImageBox = styled.View`
-  width: 123px;
-  height: 123px;
-`;
-
-const Contents = styled.View`
+const ImageWrap = styled.Image`
+  width: 120px;
+  height: 120px;
   margin: 4px 4px 4px 4px;
-  align-items: center;
 `;
+
+const styles = StyleSheet.create({
+  imageRow: {
+    justifyContent: 'space-between',
+  },
+});
 
 export default Post;
