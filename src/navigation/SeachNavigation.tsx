@@ -9,7 +9,11 @@ const Stack = createNativeStackNavigator();
 const SearchNavigation = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Search" component={Search} />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="Search"
+        component={Search}
+      />
     </Stack.Navigator>
   );
 };

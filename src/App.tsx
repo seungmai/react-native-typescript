@@ -105,7 +105,9 @@ const App = () => {
   );
 };
 
-const Container = styled.View``;
+const Container = styled.View`
+  flex: 1;
+`;
 const Title = styled.Text``;
 
 const NavigationImage = styled.Image`

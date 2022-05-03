@@ -1,6 +1,6 @@
 // AnotherUser.tsx
 import React from 'react';
-import {StyleSheet, FlatList, Image} from 'react-native';
+import {StyleSheet, FlatList} from 'react-native';
 import styled from 'styled-components/native';
 
 const data = [
